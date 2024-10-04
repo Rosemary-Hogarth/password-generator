@@ -5,18 +5,30 @@ let btn = document.getElementById("btn")
 let displayElOne = document.getElementById("content-el-one")
 let displayElTwo = document.getElementById("content-el-two")
 let passwordLength = 15
-let password = ""
 
+function clearPasswords() {
+  displayElOne.textContent = "";
+  displayElTwo.textContent = "";
+}
 
 function generatePassword() {
+  let passwordOne = "";
+  let passwordTwo = "";
 
-  for (let i = 0; i <= passwordLength; i++) {
+  for (let i = 0; i < passwordLength; i++) {
     let randomCharactersOne = Math.floor(Math.random() * characters.length)
     let randomCharactersTwo = Math.floor(Math.random() * characters.length)
 
-    displayElOne.textContent += characters[randomCharactersOne]
-    displayElTwo.textContent += characters[randomCharactersTwo]
+    passwordOne += characters[randomCharactersOne]
+    passwordTwo += characters[randomCharactersTwo]
+
   }
+
+  displayElOne.textContent = passwordOne;
+  displayElTwo.textContent = passwordTwo;
 }
 
+
 generatePassword()
+
+clearPasswords();
